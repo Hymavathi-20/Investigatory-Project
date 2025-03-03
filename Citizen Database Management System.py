@@ -1,11 +1,12 @@
+# CITIZEN DATABASE MANAGEMENT SYSTEM 
 
+# Connecting MySQL and python
 import mysql.connector as sql
 con=sql.connect(host='localhost',password='Hyma@SQL',user='root',database='Citizen_Database')
 if con.is_connected():
      print()
 
 c=con.cursor()
-
 
 
 
@@ -20,7 +21,6 @@ def create_table():
     s='Create table Citizen_data(Unique_ID varchar(20),Name varchar(30),DOB varchar(20),Gender varchar(5),Aadhar_ID varchar(20),Voter_ID varchar(20));'
     c.execute(s)
     print('Table citizen_data created')
-
 
 
 
@@ -41,7 +41,7 @@ def show():
     print('-'*70)
 
 
-# INSERT NEW RECORDS IN TABLE
+# INSERT NEW RECORD
 def insert():
     unid=str(input('Enter Unique ID        : '))
     nm=str(input('Enter Name             : '))
@@ -56,7 +56,7 @@ def insert():
     con.commit()
 
 
-# DELETES A RECORD
+# DELETE A RECORD
 def delete():
     a=str(input('Enter the Unique ID of record to be deleted:'))
     b=str(input('Please confirm the Unique ID:'))
@@ -67,7 +67,7 @@ def delete():
          con.commit()
 
 
-# SELECTS A SPECIFIC RECORD       
+# DISPLAY A SPECIFIC RECORD       
 def search():
     print('1:Unique_ID      2:Name')
     print()
@@ -118,7 +118,7 @@ def count():
      print()
 
 
-# SELECTS A COULMN DATA
+# SELECT A COLUMN DATA
 def search_clm():
      print('1:Unique_ID')
      print('2:Name')
@@ -148,7 +148,7 @@ def search_clm():
           print(i,'\n')
 
 
-# UPDATING THE DATA IN TABLE
+# UPDATING A RECORD
 def update():
      unid=str(input('Enter Unique_ID to be updated:'))
      print('1:Name')
@@ -187,7 +187,7 @@ def update():
 
 
 
-# TO STORE DATA IN A VARIABLE
+# SELECT A RECORD 
 def use_data():
      unid=list(input('Enter Unique_ID:'))
      q='select * from Citizen_data where Unique_ID= %s;'
@@ -287,8 +287,7 @@ def login():
           else:
                print('Invalid choice please try again.')
                
-
-            
+           
 #print('--------------------------------------------------------------------------------')              
 #print('************************ CITIZEN DATA MANAGEMENT SYSTEM ************************')
 #print('--------------------------------------------------------------------------------')
